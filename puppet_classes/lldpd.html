@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: lldpd
+  
+    &mdash; Documentation by YARD 0.9.8
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::lldpd";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (l)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">lldpd</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: lldpd</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>::lldpd::params</dd>
+  </dl>
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Installs and manages the LLDP agent.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Declaring the class</p>
+</div></p>
+      
+      <pre class="example code"><code>include ::lldpd</code></pre>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Enabling CDPv1 and CDPv2</p>
+</div></p>
+      
+      <pre class="example code"><code>class { &#39;::lldpd&#39;:
+  enable_cdpv1 =&gt; true,
+  enable_cdpv2 =&gt; true,
+}</code></pre>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Enable SNMP support</p>
+</div></p>
+      
+      <pre class="example code"><code>class { &#39;::lldpd&#39;:
+  enable_snmp =&gt; true,
+  snmp_socket =&gt; [&#39;127.0.0.1&#39;, 705],
+}</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>addresses</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>List of IP addresses to advertise as the management addresses.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>chassis_id</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>List of interfaces to use for choosing the MAC address used as the chassis
+ID.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>class</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[1, 4]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Set the LLDP-MED class.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_cdpv1</span>
+      
+      
+        <span class='type'>(<tt>Variant[Boolean, Enum['force']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Disable, enable, or force Cisco Discovery Protocol version 1. Both this and
+the below parameter are combined to form an overall CDP setting, not all
+combinations are supported by <code>lldpd</code>.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_cdpv2</span>
+      
+      
+        <span class='type'>(<tt>Variant[Boolean, Enum['force']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Disable, enable, or force Cisco Discovery Protocol version 2. Both this and
+the above parameter are combined to form an overall CDP setting, not all
+combinations are supported by <code>lldpd</code>.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_edp</span>
+      
+      
+        <span class='type'>(<tt>Variant[Boolean, Enum['force']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Disable, enable, or force the Extreme Discovery Protocol.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_fdp</span>
+      
+      
+        <span class='type'>(<tt>Variant[Boolean, Enum['force']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Disable, enable, or force the Foundry Discovery Protocol.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_lldp</span>
+      
+      
+        <span class='type'>(<tt>Variant[Boolean, Enum['force']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Disable, enable, or force the Link Layer Discovery Protocol.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_sonmp</span>
+      
+      
+        <span class='type'>(<tt>Variant[Boolean, Enum['force']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Disable, enable, or force the Nortel Discovery Protocol.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_snmp</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable or disable the SNMP AgentX sub-agent support.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>interfaces</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>List of interfaces to advertise on.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>package_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::lldpd::params::package_name</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the package.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::lldpd::params::service_name</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of the service.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>snmp_socket</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Stdlib::Absolutepath, Tuple[IP::Address::NoSubnet, Bodgitlib::Port]]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The path or IP &amp; port pair used to establish an SNMP AgentX connection.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 32</span>
+
+class lldpd (
+  Optional[Array[String, 1]]                                                             $addresses    = undef,
+  Optional[Array[String, 1]]                                                             $chassis_id   = undef,
+  Optional[Integer[1, 4]]                                                                $class        = undef,
+  Variant[Boolean, Enum[&#39;force&#39;]]                                                        $enable_cdpv1 = false,
+  Variant[Boolean, Enum[&#39;force&#39;]]                                                        $enable_cdpv2 = false,
+  Variant[Boolean, Enum[&#39;force&#39;]]                                                        $enable_edp   = false,
+  Variant[Boolean, Enum[&#39;force&#39;]]                                                        $enable_fdp   = false,
+  Variant[Boolean, Enum[&#39;force&#39;]]                                                        $enable_lldp  = true,
+  Variant[Boolean, Enum[&#39;force&#39;]]                                                        $enable_sonmp = false,
+  Boolean                                                                                $enable_snmp  = false,
+  Optional[Array[String, 1]]                                                             $interfaces   = undef,
+  String                                                                                 $package_name = $::lldpd::params::package_name,
+  String                                                                                 $service_name = $::lldpd::params::service_name,
+  Optional[Variant[Stdlib::Absolutepath, Tuple[IP::Address::NoSubnet, Bodgitlib::Port]]] $snmp_socket  = undef,
+) inherits ::lldpd::params {
+
+  contain ::lldpd::install
+  contain ::lldpd::config
+  contain ::lldpd::service
+
+  Class[&#39;::lldpd::install&#39;] -&gt; Class[&#39;::lldpd::config&#39;]
+    ~&gt; Class[&#39;::lldpd::service&#39;]
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Wed Sep  6 08:02:30 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.8 (ruby-2.2.5).
+</div>
+
+    </div>
+  </body>
+</html>
