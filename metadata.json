@@ -1,0 +1,88 @@
+{
+  "name": "bodgit-lldpd",
+  "version": "1.0.0",
+  "author": "bodgit",
+  "summary": "Puppet Module for managing lldpd",
+  "license": "Apache-2.0",
+  "source": "https://github.com/bodgit/puppet-lldpd",
+  "project_page": "https://github.com/bodgit/puppet-lldpd",
+  "issues_url": "https://github.com/bodgit/puppet-lldpd/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "OpenBSD",
+      "operatingsystemrelease": [
+        "6.0",
+        "6.1"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=4.6.0 <6.0.0"
+    }
+  ],
+  "tags": [
+    "cdp",
+    "edp",
+    "fdp",
+    "lldp",
+    "sonmp"
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=4.13.0 <5.0.0"
+    },
+    {
+      "name": "thrnio/ip",
+      "version_requirement": ">=1.0.0 <2.0.0"
+    },
+    {
+      "name": "bodgit/bodgitlib",
+      "version_requirement": ">=1.6.0 <3.0.0"
+    }
+  ]
+}
