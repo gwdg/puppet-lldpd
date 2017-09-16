@@ -21,6 +21,8 @@ RSpec.configure do |c|
       on host, puppet('module', 'install', 'bodgit-bodgitlib'),  { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'thrnio-ip'),         { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'stahnma-epel'),      { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'razorsedge-snmp'),   { :acceptable_exit_codes => [0,1] }
+      scp_to(host, File.join(proj_root, 'spec/fixtures/files/LLDP-MIB.txt'), '/root/LLDP-MIB.txt')
     end
   end
 end
