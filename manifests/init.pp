@@ -43,7 +43,7 @@ class lldpd (
   Optional[Array[String, 1]]                                                             $interfaces   = undef,
   String                                                                                 $package_name = $::lldpd::params::package_name,
   String                                                                                 $service_name = $::lldpd::params::service_name,
-  Optional[Variant[Stdlib::Absolutepath, Tuple[IP::Address::NoSubnet, Bodgitlib::Port]]] $snmp_socket  = undef,
+  Optional[Variant[Stdlib::Absolutepath, Tuple[Stdlib::IP::Address::V4::Nosubnet, Bodgitlib::Port]]] $snmp_socket  = undef,
 ) inherits ::lldpd::params {
 
   contain ::lldpd::install
